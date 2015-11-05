@@ -30,6 +30,17 @@ describe 'include.sh' do
         end
       end
     end
+
+    context 'and an .sh file in the src/preload directory' do
+      let(:preload_echo) { 'Prelocked and preloaded' }
+
+      before { echo_script 'src/preload/preload_test.sh', preload_echo }
+
+      it 'should source the file in the preload directory, then any others' do
+        result = preload_echo + "\n" + root_dir_echo + "\n"
+        expect(Dotfiles.include).to eq result
+      end
+    end
   end
 
   def echo_script(name, to_echo)
