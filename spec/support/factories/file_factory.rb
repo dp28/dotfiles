@@ -20,6 +20,7 @@ class FileFactory
       @@paths_created ||= []
       unless File.directory?(path)
         @@paths_created << FileUtils.mkdir_p(path).first
+        @@paths_created << path.split('/').first
       end
     end
   end
