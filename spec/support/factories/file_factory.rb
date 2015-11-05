@@ -9,6 +9,7 @@ class FileFactory
     end
 
     def cleanup
+      @@paths_created ||= []
       @@paths_created.each { |path| FileUtils.rm_rf(path) if File.exists? path }
       @@paths_created = []
     end

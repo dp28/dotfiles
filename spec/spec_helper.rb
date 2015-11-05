@@ -4,7 +4,10 @@
 # loaded once.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configurationrequire './spec/support/file_factory'
-require './spec/support/file_factory'
+require './spec/support/dotfiles'
+require './spec/support/bash'
+require './spec/support/factories/file_factory'
+require './spec/support/factories/bash_file_factory'
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
