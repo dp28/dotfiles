@@ -4,10 +4,14 @@
 # loaded once.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configurationrequire './spec/support/file_factory'
+require 'fileutils'
+
 require './spec/support/dotfiles'
 require './spec/support/bash'
 require './spec/support/factories/file_factory'
 require './spec/support/factories/bash_file_factory'
+
+SPEC_RUN_DIR = './spec_env'
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -20,5 +24,14 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 
-  config.after(:suite) { FileFactory.cleanup }
+  config.before(:suite) do
+    `rsync --exclude spec/ . #{SPEC_RUN_DIR} -r`
+    Dir.chdir SPEC_RUN_DIR
+    puts "Running tests in #{`pwd`}"
+  end
+
+  config.after(:suite) do
+    Dir.chdir '..'
+    FileUtils.rm_rf SPEC_RUN_DIR
+  end
 end
