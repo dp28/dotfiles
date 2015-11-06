@@ -1,11 +1,7 @@
 class Bash
   class << self
     def run(command)
-      `sh -c '#{command}'`
-    end
-
-    def source(file)
-      run ". #{file}"
+      `bash -c '#{command}'`
     end
   end
 end
