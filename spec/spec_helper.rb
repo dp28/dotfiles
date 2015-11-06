@@ -1,9 +1,6 @@
 require 'fileutils'
 
-require './spec/support/dotfiles'
-require './spec/support/bash'
-require './spec/support/factories/file_factory'
-require './spec/support/factories/bash_file_factory'
+Dir[File.join(__dir__, 'support', '**', '*.rb')].each { |file| require file }
 
 SPEC_RUN_DIR     = 'spec_env'
 DIRS_NOT_TO_COPY = ['.git', 'spec', SPEC_RUN_DIR]
