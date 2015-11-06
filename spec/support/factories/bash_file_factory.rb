@@ -1,4 +1,4 @@
-require './spec/support/factories/file_factory'
+require_relative './file_factory'
 
 class BashFileFactory < FileFactory
   class << self

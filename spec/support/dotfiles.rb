@@ -1,4 +1,4 @@
-require './spec/support/bash'
+require_relative './bash'
 
 class Dotfiles
   class << self
