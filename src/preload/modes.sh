@@ -40,3 +40,5 @@ run() {
   "$@"
   fi
 }
+
+trap '[ $DOTFILES_MODE = "test" ] && dotfiles' DEBUG
