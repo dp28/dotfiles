@@ -5,6 +5,7 @@ describe 'include.sh' do
     let(:root_dir_echo) { 'Hello, world!' }
 
     before { echo_script 'an_include_test.sh', root_dir_echo }
+    after  { SpecDirectory.reset }
 
     it 'should be sourced' do
       expect(Dotfiles.include).to eq root_dir_echo + "\n"

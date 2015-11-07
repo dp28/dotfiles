@@ -1,14 +1,4 @@
-require 'fileutils'
-
 Dir[File.join(__dir__, 'support', '**', '*.rb')].each { |file| require file }
-
-SPEC_RUN_DIR     = 'spec_env'
-DIRS_NOT_TO_COPY = ['.git', 'spec', SPEC_RUN_DIR]
-
-def sync(source, destination, options = '')
-  exclude = DIRS_NOT_TO_COPY.map { |dir| "--exclude #{dir}" }.join ' '
-  `rsync -a #{source} #{destination} #{exclude} #{options}`
-end
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -21,16 +11,6 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 
-  config.before(:suite) do
-    sync '.', SPEC_RUN_DIR
-    Dir.chdir SPEC_RUN_DIR
-    puts "Running tests in #{`pwd`}"
-  end
-
-  config.after(:each) { sync '..', '.', '--delete' }
-
-  config.after(:suite) do
-    Dir.chdir '..'
-    FileUtils.rm_rf SPEC_RUN_DIR
-  end
+  config.before(:suite) { SpecDirectory.setup }
+  config.after(:suite)  { SpecDirectory.teardown }
 end
