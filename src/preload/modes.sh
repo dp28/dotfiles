@@ -41,4 +41,4 @@ run() {
   fi
 }
 
-trap '[ $DOTFILES_MODE = "test" ] && dotfiles' DEBUG
+trap '[ $DOTFILES_MODE = "test" ] && type dotfiles &>/dev/null && dotfiles' DEBUG
