@@ -24,6 +24,18 @@ describe 'dotfiles_utils.sh' do
         expect(command).not_to include success_value
       end
     end
+  end
 
+  describe 'run_in_dir' do
+    let(:dir)     { '/tmp' }
+    let(:command) { Dotfiles.run "run_in_dir /tmp pwd ; pwd" }
+
+    it 'should run the specified command in he specified directory' do
+      expect(command.lines.first).to eq dir + "\n"
+    end
+
+    it 'should return to the current direcory afterwards' do
+      expect { command }.not_to change { `pwd` }
+    end
   end
 end
