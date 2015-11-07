@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'dotfiles_utils.sh' do
-  describe 'contains_element' do
+  describe '$ contains_element' do
     let(:array)            { ['a', 'group', 'of', 'string'] }
     let(:contains_element) { "contains_element #{@element} ${array[@]}" }
     let(:success_value)    { 'success' }
@@ -26,7 +26,7 @@ describe 'dotfiles_utils.sh' do
     end
   end
 
-  describe 'run_in_dir' do
+  describe '$ run_in_dir' do
     let(:dir)     { '/tmp' }
     let(:command) { Dotfiles.run "run_in_dir /tmp pwd ; pwd" }
 

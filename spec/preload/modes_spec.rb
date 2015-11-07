@@ -11,7 +11,7 @@ describe 'modes.sh' do
     MODES.each { |mode| it { should include mode } }
   end
 
-  describe 'dotfiles_mode' do
+  describe '$ dotfiles_mode' do
     context 'with no arguments' do
       subject(:mode) { Dotfiles.run 'echo `dotfiles_mode`', pre_include: setup }
 
@@ -63,7 +63,7 @@ describe 'modes.sh' do
     end
   end
 
-  describe 'run' do
+  describe '$ run' do
     let(:text)    { 'Something dangerous' }
     let(:command) { "echo #{text}" }
 
