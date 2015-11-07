@@ -30,7 +30,7 @@ describe 'dotfiles_utils.sh' do
     let(:dir)     { '/tmp' }
     let(:command) { Dotfiles.run "run_in_dir /tmp pwd ; pwd" }
 
-    it 'should run the specified command in he specified directory' do
+    it 'should run the specified command in the specified directory' do
       expect(command.lines.first).to eq dir + "\n"
     end
 
