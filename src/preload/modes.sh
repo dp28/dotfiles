@@ -33,3 +33,10 @@ set_dotfiles_mode() {
 if [ -z "$DOTFILES_MODE" ]; then
   set_dotfiles_mode normal
 fi
+
+run() {
+  echo "$@"
+  if [ $DOTFILES_MODE = 'normal' ]; then
+  "$@"
+  fi
+}

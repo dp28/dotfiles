@@ -62,5 +62,34 @@ describe 'modes.sh' do
       end
     end
 
+    describe 'run' do
+      let(:text)    { 'Something dangerous' }
+      let(:command) { "echo #{text}" }
+
+      let(:run) do
+        Dotfiles.run "run #{command}",
+          pre_include: [ "DOTFILES_MODE='#{mode}'" ]
+      end
+
+      context 'when the dotfiles_mode is "test"' do
+        let(:mode) { 'test' }
+
+        it 'should only echo the command passed to it' do
+          expect(run).to eq command + "\n"
+        end
+      end
+
+      context 'when the dotfiles_mode is "normal"' do
+        let(:mode) { 'normal' }
+
+        it 'should first echo the command passed to it' do
+          expect(run.lines.first).to eq command + "\n"
+        end
+
+        it 'should also run the command' do
+          expect(run.lines[1]).to eq text + "\n"
+        end
+      end
+    end
   end
 end
