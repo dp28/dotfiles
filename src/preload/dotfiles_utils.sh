@@ -23,9 +23,9 @@ _dotfiles_help() {
   if [ ${#spec_line} -eq 0 ]; then
     echo "No dotfiles help found for '$1'"
   else
-    rspec $spec_line \
+    rspec $spec_line --color --tty \
       | sed -e "/$1/,/Finished/!d" \
-      | sed s/\ \ \ /*/ \
+      | sed s/\ \ \ \ // \
       | head -n -1 \
       | tail -n +2
   fi
