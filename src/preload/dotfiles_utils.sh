@@ -12,3 +12,11 @@ run_in_dir() {
   "${@:2}"
   cd $current_dir
 }
+
+_complete_from() {
+  local current_word
+  COMPREPLY=()
+  current_word=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $( compgen -W '$@' -- $current_word ) )
+  return 0
+}

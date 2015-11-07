@@ -10,6 +10,12 @@ dotfiles_help() {
   fi
 }
 
+_dotfiles_help_completion() {
+  _complete_from `dotfiles_commands`
+}
+
+complete -F _dotfiles_help_completion "dotfiles_help"
+
 dotfiles_commands() {
   run_in_dir $DOTFILES_HOME _find_documented_commands
 }

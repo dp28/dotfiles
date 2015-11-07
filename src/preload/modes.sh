@@ -12,6 +12,12 @@ dotfiles_mode() {
   fi
 }
 
+_dotfiles_mode_completion() {
+  _complete_from ${DOTFILES_MODES[@]}
+}
+
+complete -F _dotfiles_mode_completion "dotfiles_mode"
+
 show_dotfiles_mode() {
   if [ $DOTFILES_MODE = 'normal' ]; then
     message="'run' echoes and executes commands"
