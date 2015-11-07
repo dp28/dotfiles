@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+DOTFILES_HOME=~/Programming/Other/dotfiles
+
 for file in `find . -path '*/preload/*.sh'` ; do
   . $file
 done
