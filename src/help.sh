@@ -1,7 +1,17 @@
 #! /usr/bin/env bash
 
 dotfiles_help() {
-  run_in_dir $DOTFILES_HOME _dotfiles_help "$@"
+  if [ $# -eq 0 ]; then
+    echo "Available commands:"
+    echo
+    dotfiles_commands
+  else
+    run_in_dir $DOTFILES_HOME _dotfiles_help "$@"
+  fi
+}
+
+dotfiles_commands() {
+  run_in_dir $DOTFILES_HOME _find_documented_commands
 }
 
 _dotfiles_help() {
@@ -22,4 +32,11 @@ _find_spec_line() {
   grep -rn --include=*_spec.rb "describe .$ $1. do" spec/ \
     | grep -o ".*: " \
     | sed s/:\ //
+}
+
+_find_documented_commands() {
+  grep -rn --include=*_spec.rb "describe '$ .*' do" spec/ \
+    | grep -o "$ .*'" \
+    | sed s/$\ // \
+    | sed "s/'//"
 }

@@ -10,7 +10,8 @@ of dotfiles that are quick and easy to add to, while also being self-documented
 Re-sources the dotfiles directory
 
 ### `dotfiles_help [command]`
-Prints the help for a given command. 
+Prints the help for a given command. Without a command it lists the available 
+commands.
 
 ### `dotfiles_mode [mode]`
 Without any argument, shows he current mode. With an argument, sets the argument
