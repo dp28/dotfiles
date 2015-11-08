@@ -36,8 +36,10 @@ dotfiles directory.
 
 ## Development
 Recommended development is to use test-driven development and/or set the 
-dotfiles_mode to 'test'. Test mode speeds development as all files are 
-re-sourced before each command. 
+dotfiles_mode to 'test'. TDD is facilitated by observr, which will run the 
+relevant specs whenever a file is changed - just run 
+`observr spec/watch_specs.rb`. Test mode speeds development as all files are 
+re-sourced before each command.
 
 Furthermore, if the functions being written prefix commands with `run` then 
 dangerous/long-running commands can be included safely and quickly as `run` does 
