@@ -1,0 +1,35 @@
+#! /usr/bin/env ruby
+
+require 'thor'
+require_relative '../timed_sessions'
+
+class TimedSessionCommand < Thor
+
+  desc 'start NAME', 'start a new session called NAME'
+  def start(name)
+    timed_session.start name
+  end
+
+  desc 'break NAME', 'start/stop a break in the current session NAME'
+  def break(name)
+    timed_session.break name
+  end
+
+  desc 'stop NAME', 'stop the session called NAME'
+  def stop(name)
+    timed_session.stop name
+  end
+
+  desc 'print Name', 'print all saved data for session NAME'
+  def print(name)
+    timed_session.print name
+  end
+
+  private
+
+  def timed_session
+    @timed_session ||= TimedSession.new
+  end
+end
+
+TimedSessionCommand.start ARGV
