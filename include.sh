@@ -2,11 +2,11 @@
 
 DOTFILES_HOME=~/Programming/Other/dotfiles
 
-for file in `find . -path '*/preload/*.sh'` ; do
+for file in `find ./src -path '*/preload/*.sh'` ; do
   . $file
 done
 
-for file in `find . -path '*.sh' ! -name 'include.sh' ! -path '*/preload/*.sh' ! -path '*/install/*'`
+for file in `find ./src -path '*.sh' ! -name 'include.sh' ! -path '*/preload/*.sh' ! -path '*/install/*'`
 do
   . $file
 done
