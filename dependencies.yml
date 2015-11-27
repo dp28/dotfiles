@@ -1,0 +1,15 @@
+'sudo apt-get install':
+  - meld
+  - phantomjs
+
+'gem install':
+  - observr
+  - thor
+  - rspec
+  - colorize
+
+'./install/install_git_repo.sh':
+  - dp28/gswitch
+
+'sudo npm install --global':
+  - layer-terminal
