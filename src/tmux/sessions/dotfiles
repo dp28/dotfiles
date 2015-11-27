@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+session=`basename "${BASH_SOURCE[0]}"`
+cd $DOTFILES_HOME
+
+tmux new-session -s $session -d
+tmux send-keys -t $session "subl . && gs && mode test" C-m
