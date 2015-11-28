@@ -1,0 +1,3 @@
+#compdef dotfiles_mode
+
+_arguments "1: :($DOTFILES_MODES)"
