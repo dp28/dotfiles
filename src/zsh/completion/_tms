@@ -1,0 +1,3 @@
+#compdef tms
+
+_arguments "1: :(`_tmux_sessions`)"
