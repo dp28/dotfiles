@@ -21,12 +21,6 @@ _start_tmux_session_from_file() {
   tmux attach -t $session
 }
 
-_tms_completion() {
-  _complete_from `_tmux_sessions`
-}
-
-complete -F _tms_completion "tms"
-
 _tmux_sessions() {
   for session in `_tmux_session_files` ; do
     basename $session
