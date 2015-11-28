@@ -1,0 +1,2 @@
+setopt correctall
+setopt autocd
