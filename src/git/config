@@ -1,2 +1,18 @@
 [push]
   default = simple
+
+[alias]
+  s   = status
+  ll  = log --name-status HEAD^..HEAD
+  f   = fetch
+  rc  = rebase --continue
+  l   = log --decorate
+  d   = diff
+  dt  = difftool -t meld -y
+  c   = checkout
+  cm  = commit
+  cam = commit -am
+  a   = commit --amend -C @
+  cf  = commit --fixup
+  v   = commit -v
+  va  = commit -va
