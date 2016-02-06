@@ -1,6 +1,9 @@
 [push]
   default = simple
 
+[pull]
+  rebase = true
+
 [alias]
   s   = status
   ll  = log --name-status HEAD^..HEAD
