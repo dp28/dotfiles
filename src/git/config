@@ -19,3 +19,4 @@
   cf  = commit --fixup
   v   = commit -v
   va  = commit -va
+  als = !git config -l | grep alias | cut -c 7- | sed 's/\\(.*\\)=/  \\1\\t/'
