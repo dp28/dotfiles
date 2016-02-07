@@ -5,18 +5,26 @@
   rebase = true
 
 [alias]
-  s   = status
+
   ll  = log --name-status HEAD^..HEAD
-  f   = fetch
-  rc  = rebase --continue
   l   = log --decorate
+  lo  = log --decorate --oneline
+  lp  = log --decorate -p
+
   d   = diff
   dt  = difftool -t meld -y
-  c   = checkout
+
   cm  = commit
   cam = commit -am
   a   = commit --amend -C @
   cf  = commit --fixup
   v   = commit -v
   va  = commit -va
+
+  s   = status -sb
+  sl  = status
+  f   = fetch
+  rc  = rebase --continue
+  ch  = checkout
+
   als = !git config -l | grep alias | cut -c 7- | sed 's/\\(.*\\)=/  \\1\\t/'
