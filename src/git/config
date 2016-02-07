@@ -12,6 +12,7 @@
   lp  = log --decorate -p
 
   d   = diff
+  dw  = diff --word-diff
   dt  = difftool -t meld -y
 
   cm  = commit
