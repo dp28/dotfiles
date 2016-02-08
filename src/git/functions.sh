@@ -12,7 +12,7 @@ wip() {
 }
 
 grh() {
-  gf
+  git fetch
   if [ $# -eq 0 ]; then
     branch="origin/`gsw -c`"
   else
