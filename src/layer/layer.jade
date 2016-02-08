@@ -1,0 +1,52 @@
+html
+  head
+    style.
+      body {
+        background: #{colours.background};
+      }
+
+      #todo {
+        padding: 10px 0;
+        width:   50%;
+        float:   right;
+        color:   white;
+        opacity: 0.5;
+      }
+
+      ol {
+        padding-left: 25px;
+      }
+
+      #notifications {
+        width:       300px;
+        float:       right;
+        font-weight: bold;
+        color:       #{colours.background};
+      }
+
+      .time, .text {
+        padding: 2px 5px;
+      }
+
+      .error   { background: #d9534f; }
+      .warning { background: #f0ad4e; }
+      .success { background: #5cb85c; }
+      .info    { background: #5bc0de; }
+
+  body
+    table#notifications
+      - var n = 1
+      while n <= numNotifications && n <= notifications.length
+        - var notification = notifications[notifications.length - n++]
+        - var type         = notification.type ? notification.type : 'info'
+
+        tr.notification(class='#{type}')
+          td.time #{notification.time}
+          td.text #{notification.text}
+
+    if todo && todo.length > 0
+      #todo
+        h2 To do
+        ol
+          for item in todo
+            li #{item}
