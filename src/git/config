@@ -26,6 +26,7 @@
   sl  = status
   f   = fetch
   rc  = rebase --continue
+  riw = rebase -i
   ch  = checkout
 
   als = !git config -l | grep alias | cut -c 7- | sed 's/\\(.*\\)=/  \\1\\t/'
