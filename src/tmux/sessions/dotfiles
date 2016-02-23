@@ -4,4 +4,4 @@ session=`basename "${BASH_SOURCE[0]}"`
 cd $DOTFILES_HOME
 
 tmux new-session -s $session -d
-tmux send-keys -t $session "subl . && gs && mode test" C-m
+tmux send-keys -t $session "git status && mode test" C-m
