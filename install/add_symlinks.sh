@@ -5,7 +5,7 @@ symlink_into_home_dir() {
   ln -sbr $1 "$HOME/.$file_name"
 }
 
-for file in `find ../ -path '*.symlink'` ; do
+for file in `find ./ -path '*.symlink'` ; do
   symlink_into_home_dir $file
 done
 
