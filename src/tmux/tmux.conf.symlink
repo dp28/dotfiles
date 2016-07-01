@@ -1,5 +1,7 @@
 unbind C-b
 set -g prefix C-a
 bind C-a send-prefix
-bind -n M-up run "tmux resizep -U 1"
+bind -n M-up run "tmux resize-pane -U 1"
 bind -n M-down run "tmux resize-pane -D 1"
+bind -n M-left run "tmux resize-pane -L 1"
+bind -n M-right run "tmux resize-pane -R 1"
