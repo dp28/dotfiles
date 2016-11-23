@@ -16,7 +16,7 @@
 
   d   = diff
   dw  = diff --word-diff
-  dt  = difftool -t meld -y
+  dt  = difftool -t meld -y --dir-diff
 
   cm  = commit
   cam = commit -am
