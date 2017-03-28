@@ -69,3 +69,11 @@ gbb() {
   suffix="$1"
   run git branch "${branch}_${suffix}" "${args[@]:1}"
 }
+
+dev_branch() {
+  git checkout development
+  git pull
+  local branch_name="PT$1-$2"
+  echo "Switching to new branch off development: $branch_name"
+  git checkout -b $branch_name
+}
