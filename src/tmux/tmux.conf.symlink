@@ -5,3 +5,8 @@ bind -n M-up run "tmux resize-pane -U 1"
 bind -n M-down run "tmux resize-pane -D 1"
 bind -n M-left run "tmux resize-pane -L 1"
 bind -n M-right run "tmux resize-pane -R 1"
+
+set -g window-status-format '#I:#(pwd="#{pane_current_path}"; echo ${pwd####*/})#F'
+set -g window-status-current-format '#I:#(pwd="#{pane_current_path}"; echo ${pwd####*/})#F'
+set -g automatic-rename-format '#I:#(pwd="#{pane_current_path}"; echo ${pwd####*/})#F'
+set-option -g status-interval 1
