@@ -1,35 +1,39 @@
 [push]
-  default = current
+	default = current
 
 [pull]
-  rebase = true
+	rebase = true
 
 [rebase]
-  autosquash = true
+	autosquash = true
 
 [alias]
 
-  ll  = log --name-status HEAD^..HEAD
-  l   = log --decorate
-  lo  = log --decorate --oneline
-  lp  = log --decorate -p
+	ll  = log --name-status HEAD^..HEAD
+	l   = log --decorate
+	lo  = log --decorate --oneline
+	lp  = log --decorate -p
 
-  d   = diff
-  dw  = diff --word-diff
-  dt  = difftool -t meld -y --dir-diff
+	d   = diff
+	dw  = diff --word-diff
+	dt  = difftool -t meld -y --dir-diff
 
-  cm  = commit
-  cam = commit -am
-  a   = commit --amend -C @
-  cf  = commit --fixup
-  v   = commit -v
-  va  = commit -va
+	cm  = commit
+	cam = commit -am
+	a   = commit --amend -C @
+	cf  = commit --fixup
+	v   = commit -v
+	va  = commit -va
 
-  s   = status -sb
-  sl  = status
-  f   = fetch
-  rc  = rebase --continue
-  riw = rebase -i
-  ch  = checkout
+	s   = status -sb
+	sl  = status
+	f   = fetch
+	rc  = rebase --continue
+	riw = rebase -i
+	ch  = checkout
 
-  als = !git config -l | grep alias | cut -c 7- | sed 's/\\(.*\\)=/  \\1\\t/'
+	pu    = !git push -u origin `git rev-parse --abbrev-ref HEAD`
+	p     = push
+	force = push --force-with-lease
+
+	als = !git config -l | grep alias | cut -c 7- | sed 's/\\(.*\\)=/  \\1   ->   /'
