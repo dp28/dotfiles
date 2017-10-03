@@ -7,6 +7,9 @@
 [rebase]
 	autosquash = true
 
+[commit]
+	verbose = true
+
 [alias]
 
 	ll  = log --name-status HEAD^..HEAD
