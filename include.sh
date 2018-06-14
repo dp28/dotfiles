@@ -16,5 +16,7 @@ for bin_dir in `find $DOTFILES_HOME -path '*/bin'` ; do
   add_to_path $bin_dir
 done
 
+add_to_path ~/bin
+
 unset file
 unset bin_dir
