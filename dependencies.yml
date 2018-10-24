@@ -3,9 +3,7 @@
   - phantomjs
 
 'gem install':
-  - observr
   - thor
-  - rspec
   - colorize
 
 './install/install_git_repo.sh':

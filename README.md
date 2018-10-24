@@ -17,30 +17,6 @@ dotfiles are re-sourced before each command is run.
 ### `run [command]`
 Echoes the command, then, if in 'normal' dotfiles_mode, executes the command.
 
-### Other commands
-Other commands are described by the specs, just run:
-
-```rspec --format doc```
-
-in the dotfiles direcory to get a full description of all commands.
-
-## Tests
-
-Specs are written in RSpec. Specs are run in a directory newly created for each
-run of the suite and deleted afterwards. To run them, just run `rspec` in your
-dotfiles directory.
-
-## Development
-Recommended development is to use test-driven development and/or set the
-dotfiles_mode to 'test'. TDD is facilitated by observr, which will run the
-relevant specs whenever a file is changed - just run
-`observr spec/watch_specs.rb`. Test mode speeds development as all files are
-re-sourced before each command.
-
-Furthermore, if the functions being written prefix commands with `run` then
-dangerous/long-running commands can be included safely and quickly as `run` does
-not actually execute commands in test mode.
-
 ## License
 
 MIT
