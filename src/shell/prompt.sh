@@ -16,6 +16,11 @@ build_prompt() {
   else
     PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w '
   fi
+  if pyenv which pip >/dev/null 2>&1
+  then 
+    python_virtualenv=`pyenv which pip | sed -E 's%(versions/(.+)/bin/pip)%\2%' | xargs basename`
+    PS1="\[\e[1;33m\]$python_virtualenv\[\e[00m\]|$PS1"
+  fi
   PS1="`date +%H:%M`|$PS1\n\$ "
 }
 PROMPT_COMMAND='build_prompt'
