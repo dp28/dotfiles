@@ -77,3 +77,14 @@ dev_branch() {
   echo "Switching to new branch off development: $branch_name"
   git checkout -b $branch_name
 }
+
+remove_merged_branches() {
+  git fetch -p
+  for branch in `git branch -vv | awk '{print $1,$4}' | grep 'gone]' | awk '{print $1}'`
+  do
+    echo "Deleting $branch"
+    if [ "$1" != "--dry-run" ]; then
+      git branch -D $branch
+    fi
+  done
+}
