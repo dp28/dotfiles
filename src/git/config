@@ -35,6 +35,8 @@
 	f   = fetch
 	ch  = checkout
 
+	oh  =!git fetch && git reset --hard HEAD && git merge --ff-only
+
 	riw = rebase -i
 	rc  = rebase --continue
 	ra  = rebase --abort
