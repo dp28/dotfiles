@@ -40,6 +40,12 @@
 	ra  = rebase --abort
 	rhr = !git fetch && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
 
+	rl  = reflog
+
+	m   = merge
+	mc  = merge --continue
+	ma  = merge --abort
+
 	pu    = !git push -u origin `git rev-parse --abbrev-ref HEAD`
 	p     = push
 	force = push --force-with-lease
