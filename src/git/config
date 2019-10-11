@@ -16,7 +16,7 @@
 	l   = log --decorate
 	lo  = log --decorate --oneline
 	lp  = log --decorate -p
-	lg  = log --graph --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%an]\" --decorate --date=short
+	lg  = log --all --graph --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%an]\" --decorate --date=short
 
 	d   = diff --ws-error-highlight=all
 	dw  = diff --word-diff
