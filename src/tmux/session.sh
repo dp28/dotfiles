@@ -2,7 +2,7 @@ tms() {
   for file in `_tmux_session_files`
   do
     if [ "$1" = `basename $file` ]; then
-      run _start_tmux_session_from_file $file
+      _start_tmux_session_from_file $file
       return
     fi
   done

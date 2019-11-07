@@ -27,7 +27,7 @@ gri() {
   else
     args="$@"
   fi
-  run gitg & run git rebase -i $args
+  git rebase -i $args
 }
 
 gbmr() {
@@ -67,7 +67,7 @@ gbb() {
   args=("$@")
   branch=`gsw -c`
   suffix="$1"
-  run git branch "${branch}_${suffix}" "${args[@]:1}"
+  git branch "${branch}_${suffix}" "${args[@]:1}"
 }
 
 dev_branch() {

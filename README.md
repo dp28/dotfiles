@@ -9,14 +9,6 @@ of dotfiles that are quick and easy to add to, while also being self-documented
 ### `dotfiles` (or `dfs`)
 Re-sources the dotfiles directory
 
-### `dotfiles_mode [mode]`
-Without any argument, shows he current mode. With an argument, sets the argument
-as the mode. 'test' and 'normal' are the only valid modes. In 'test' mode, all
-dotfiles are re-sourced before each command is run.
-
-### `run [command]`
-Echoes the command, then, if in 'normal' dotfiles_mode, executes the command.
-
 ## License
 
 MIT
