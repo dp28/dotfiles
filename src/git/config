@@ -14,7 +14,7 @@
 
 	ll  = log --name-status HEAD^..HEAD
 	l   = log --decorate
-	lo  = log --decorate --oneline
+	lo  = log --date=relative --pretty=\"format:%C(red)* %C(yellow)%h %C(blue)%>(12)%ad %C(green)%<(7)%aN%C(red)%d %C(reset)\n%s\n\"
 	lp  = log --decorate -p
 	lg  = log --all --graph --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%an]\" --decorate --date=short
 
