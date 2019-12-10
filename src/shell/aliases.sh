@@ -1,6 +1,9 @@
 alias dotfiles='. $DOTFILES_HOME/include.sh'
 alias dfs='dotfiles'
 
+alias prettify_json="node -e \"console.log(JSON.stringify(JSON.parse(require('fs').
+readFileSync(0, 'utf-8')), null, 2))"\"
+
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # enable color support in some ls & grep equivalents
