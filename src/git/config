@@ -28,6 +28,8 @@
 	cf  = commit --fixup
 	v   = commit -v
 	va  = commit -va
+	wip = commit -a -m '[WIP]'
+	unwip ="!git log --oneline -1 | grep \"\\[WIP\\]\" && git reset HEAD^"
 
 	s   = status -sb
 	sl  = status

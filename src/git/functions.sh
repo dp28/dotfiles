@@ -7,10 +7,6 @@ gsh() {
   fi
 }
 
-wip() {
-  git commit -am "[WIP] $1"
-}
-
 grh() {
   git fetch
   if [ $# -eq 0 ]; then
