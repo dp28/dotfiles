@@ -2,7 +2,11 @@
 
 symlink_into_home_dir() {
   local file_name=`basename $1 | sed s/.symlink//`
-  ln -sbr $1 "$HOME/.$file_name"
+  if [ on_mac ]; then
+    ln -s $1 "$HOME/.$file_name"
+  else
+    ln -sbr $1 "$HOME/.$file_name"
+  fi
 }
 
 for file in `find ./ -path '*.symlink'` ; do
