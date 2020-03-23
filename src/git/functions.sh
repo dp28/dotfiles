@@ -1,3 +1,7 @@
+gpr() {
+  git pu && git pr
+}
+
 gsh() {
   if [ $# -eq 0 ]; then
     echo "git shortlog origin/master..HEAD"

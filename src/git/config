@@ -59,4 +59,4 @@
 	als = !git config -l | grep alias | cut -c 7- | sed 's/\\(.*\\)=/  \\1   ->   /'
 
 	# Create pull request for current branch  =====
-  pr = "!open \"http://github.com/$(git remote -v|sed -e '/^origin/!d' -e '/(push)$/!d' -e 's|^.*github\\.com[:/]\\([^. ]*\\).*$|\\1|')/pull/new/$(git rev-parse --abbrev-ref HEAD)\""
+	pr = "!open \"http://github.com/$(git remote -v|sed -e '/^origin/!d' -e '/(push)$/!d' -e 's|^.*github\\.com[:/]\\([^. ]*\\).*$|\\1|')/pull/new/$(git rev-parse --abbrev-ref HEAD)\""
