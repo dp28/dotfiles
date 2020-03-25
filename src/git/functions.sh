@@ -18,7 +18,7 @@ grh() {
   else
     branch="$1"
   fi
-  git reset --hard $branch
+  git reset --hard "$branch"
 }
 
 gri() {

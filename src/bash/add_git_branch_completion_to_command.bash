@@ -7,7 +7,7 @@ _add_branch_completion() {
   local branches
   COMPREPLY=()
 
-  branches=`git branch -a | sed -e 's/\*//' -e 's/\s//g' -e 's/remotes\///g' | tr '\n' ' '`
+  branches=`git branch -a | sed -e 's/\*//' -e 's/remotes\///g' | tr '\n' ' '`
 
   current_word=${COMP_WORDS[COMP_CWORD]}
   COMPREPLY=( $( compgen -W "$branches" -- $current_word ) )
