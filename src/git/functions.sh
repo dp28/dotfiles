@@ -88,3 +88,8 @@ remove_merged_branches() {
     fi
   done
 }
+
+clean_master() {
+  git checkout master && git pull && remove_merged_branches
+}
+alias clean_branch="clean_master && branch"
