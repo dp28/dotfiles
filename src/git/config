@@ -13,6 +13,9 @@
 [fetch]
 	prune = true
 
+[init]
+	templatedir = ~/dotfiles/src/git/templates/
+
 [alias]
 
 	ll  = log --name-status HEAD^..HEAD

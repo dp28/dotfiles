@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Capture stdin
+exec < /dev/tty
+
+# Ask before pushing branches with WIP commits
+if git log $(git merge-base --fork-point origin/master)..HEAD | grep WIP
+then
+  while true; do
+    read -p "This branch contains WIP commits. Push anyway? [y/n] " answer
+    case $answer in
+        [Yy]* ) echo "Pushing branch with WIP commits"; break;;
+        [Nn]* ) >&2 echo "Aborting push due to WIP commits" ; exit 1;;
+        * ) echo "Please answer y or n.";;
+    esac
+  done
+fi
+
+# Close stdin
+exec <&-
