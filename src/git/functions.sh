@@ -4,8 +4,8 @@ gpr() {
 
 gsh() {
   if [ $# -eq 0 ]; then
-    echo "git shortlog origin/master..HEAD"
-    git shortlog origin/master..HEAD
+    echo "git shortlog origin/$(git default-branch-name)..HEAD"
+    git shortlog "origin/$(git default-branch-name)"..HEAD
   else
     git shortlog "$@"
   fi
@@ -23,7 +23,7 @@ grh() {
 
 gri() {
   if [ $# -eq 0 ]; then
-    args="origin/master"
+    args="origin/$(git default-branch-name)"
   else
     args="$@"
   fi
@@ -89,7 +89,7 @@ remove_merged_branches() {
   done
 }
 
-clean_master() {
-  git checkout master && git pull && remove_merged_branches
+clean_default_branch() {
+  git checkout $(git default-branch-name) && git pull && remove_merged_branches
 }
-alias clean_branch="clean_master && branch"
+alias clean_branch="clean_default_branch && branch"

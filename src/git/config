@@ -23,8 +23,7 @@
 	lo  = log --date=relative --pretty=\"format:%C(red)* %C(yellow)%h %C(blue)%>(12)%ad %C(green)%<(7)%aN%C(red)%d %C(reset)\n%s\n\"
 	lp  = log --decorate -p
 	lg  = log --all --graph --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%an]\" --decorate --date=short
-	ld  = !git log `git merge-base --fork-point origin/develop`..HEAD
-	lm  = !git log `git merge-base --fork-point origin/master`..HEAD
+	ld  = !git log `git merge-base --fork-point origin/$(git default-branch-name)`..HEAD
 
 	d   = diff --ws-error-highlight=all
 	dw  = diff --word-diff
@@ -49,7 +48,7 @@
 	oh  =!git fetch && git reset --hard HEAD && git merge --ff-only
 
 	riw = rebase -i
-	rim = !git fetch && git rebase origin/master
+	rid = !git fetch && git rebase origin/`git default-branch-name`
 	rc  = rebase --continue
 	ra  = rebase --abort
 	rhr = !git fetch && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
@@ -68,3 +67,6 @@
 
 	# Create pull request for current branch  =====
 	pr = "!open \"http://github.com/$(git remote -v|sed -e '/^origin/!d' -e '/(push)$/!d' -e 's|^.*github\\.com[:/]\\([^. ]*\\).*$|\\1|')/pull/new/$(git rev-parse --abbrev-ref HEAD)\""
+
+	# If default branch isn't master, set it with `git remote set-head origin --auto`
+	default-branch-name = "!{ git rev-parse --abbrev-ref origin/HEAD || echo 'origin/master' ;} | cut -d '/' -f 2"

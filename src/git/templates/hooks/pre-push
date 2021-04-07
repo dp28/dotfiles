@@ -4,7 +4,7 @@
 exec < /dev/tty
 
 # Ask before pushing branches with WIP commits
-if git log $(git merge-base --fork-point origin/master)..HEAD | grep WIP
+if git log $(git merge-base --fork-point "origin/$(git default-branch-name)")..HEAD | grep WIP
 then
   while true; do
     read -p "This branch contains WIP commits. Push anyway? [y/n] " answer
