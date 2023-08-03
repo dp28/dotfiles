@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative "../dependency_container"
+require_relative "../preload"
 
 jira = DependencyContainer.default.fetch(:jira)
 puts jira.fetch_ticket(ARGV.first)[:summary]

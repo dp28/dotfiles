@@ -8,6 +8,10 @@ class DependencyContainer
       dependencies.register_singleton(:logger) { Logger }
       dependencies.register_singleton(:jira) { Jira }
       dependencies.register_singleton(:ticket_branch) { TicketBranch }
+
+      dependencies.register_singleton(:fetch_input, file_path: './input/fetch_input') do
+        FetchInput
+      end
     end
   end
 
