@@ -1,0 +1,3 @@
+module InjectDependencies
+
+end

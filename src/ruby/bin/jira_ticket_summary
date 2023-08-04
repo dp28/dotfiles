@@ -2,5 +2,14 @@
 
 require_relative "../preload"
 
-jira = DependencyContainer.default.fetch(:jira)
-puts jira.fetch_ticket(ARGV.first)[:summary]
+ExecuteCli
+  .new(dependencies: DependencyContainer.default)
+  .with_positional_argument(
+    name: :ticket_key,
+    description: "The key of the Jira ticket to fetch"
+  )
+  .call do |dependencies, arguments|
+    jira = dependencies.fetch(:jira)
+    ticket_key = arguments[:ticket_key]
+    puts jira.fetch_ticket(ticket_key)[:summary]
+  end

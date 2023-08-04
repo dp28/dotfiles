@@ -40,7 +40,7 @@ class DependencyContainer
 
   def register_singleton(name, file_path: nil)
     register(name) do |dependencies|
-      require_relative "./#{file_path || name}"
+      require_relative "../#{file_path || name}"
 
       yield.new(dependencies: dependencies)
     end
