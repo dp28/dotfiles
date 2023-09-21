@@ -59,7 +59,7 @@
 
 	f   = fetch
 	ch  = checkout
-	cb  = "!git checkout \"$(git branch --format='%(refname:short)' | fzf)\""
+	cb  = "!git checkout \"$(git branch --format='%(refname:short)' --sort='-authordate' | fzf)\""
 
 	oh  =!git fetch && git reset --hard HEAD && git merge --ff-only
 
