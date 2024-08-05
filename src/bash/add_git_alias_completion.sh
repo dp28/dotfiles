@@ -13,6 +13,7 @@ function_exists() {
 
 _git_aliases() {
   git config --get-regexp "^alias\." |
+    grep -o "alias\.\([[:alnum:]]*\)" |
     grep -o "\.\([[:alnum:]]*\)" |
     sed "s/\.//" |
     grep -v "^[[:space:]]*$"
