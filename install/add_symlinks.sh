@@ -9,7 +9,7 @@ symlink_into_home_dir() {
   fi
 }
 
-for file in `find ./ -path '*.symlink'` ; do
+for file in `find $DOTFILES_HOME -path '*.symlink'` ; do
   symlink_into_home_dir $file
 done
 
