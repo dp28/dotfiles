@@ -93,3 +93,7 @@ clean_default_branch() {
   git checkout $(git default-branch-name) && git pull && remove_merged_branches
 }
 alias clean_branch="clean_default_branch && branch"
+
+files_changed_on_branch() {
+  git diff --name-only origin/$(git default-branch-name)..HEAD
+}
