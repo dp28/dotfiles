@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+reflog_line = `git reflog | grep "moving from" | head -n 1`.strip
+
+if reflog_line.empty?
+    STDERR.puts "No previous branch found"
+    exit 1
+end
+
+branch_name = reflog_line.match(/moving from (\S+)/)[1]
+
+puts branch_name
