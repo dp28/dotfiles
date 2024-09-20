@@ -86,3 +86,5 @@
 
 	# If default branch isn't master, set it with `git remote set-head origin --auto`
 	default-branch-name = "!{ git rev-parse --abbrev-ref origin/HEAD || echo 'origin/master' ;} | cut -d '/' -f 2"
+
+	repo-name = !basename `git rev-parse --show-toplevel`
