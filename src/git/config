@@ -69,6 +69,8 @@
 	ra  = rebase --abort
 	rhr = !git fetch && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
 
+	rebase-chain = !git rebase -i `previous_branch`
+
 	rl  = reflog
 
 	m   = merge
