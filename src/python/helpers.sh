@@ -1,1 +1,1 @@
-alias cleanpy='find . -name "*.pyc" -exec rm -f {} \;'
+alias cleanpy='find . | grep -E "(__pycache__|\.pyc$)" | xargs rm -rf'
