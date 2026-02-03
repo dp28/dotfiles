@@ -27,8 +27,3 @@ _complete_from() {
   COMPREPLY=( $( compgen -W '$@' -- $current_word ) )
   return 0
 }
-
-add_to_path() {
-  local add_to_path="puts ENV['PATH'].split(':').push('$1').uniq.join(':')"
-  export PATH=`ruby -e "$add_to_path"`
-}
