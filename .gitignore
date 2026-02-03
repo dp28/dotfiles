@@ -2,3 +2,4 @@
 src/extensions
 .git_tokens
 config/
+.vscode/
